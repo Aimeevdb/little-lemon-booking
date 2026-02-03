@@ -36,3 +36,24 @@
     transform: rotate(360deg);
   }
 }
+
+/* Header: Flexbox */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Specials: Grid */
+.specials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+/* Hero: Grid */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}

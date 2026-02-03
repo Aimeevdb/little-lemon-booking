@@ -2,10 +2,10 @@ import footerImage from './assets/Mario and Adrian A.jpg'; // adjust name as nee
 
 function Footer() {
   return (
-    <footer>
+    <footer className='footer'>
       <img src={footerImage} alt="Little Lemon Footer Graphic" />
 
-      <section>
+      <section className="footer-info">
         <h4>Restaurant Info</h4>
         <ul>
           <li>Address</li>
