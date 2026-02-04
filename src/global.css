@@ -1,0 +1,178 @@
+:root {
+  --primary-color: #F4CE14;
+  --secondary-color: #495E57;
+  --neutral-light: #FFFFFF;
+  --neutral-dark: #333333;
+
+  --font-family-base: 'Karla', sans-serif;
+
+  --radius: 8px;
+  --shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family-base);
+  background-color: var(--neutral-light);
+  color: var(--neutral-dark);
+  line-height: 1.6;
+}
+
+h1 {
+  font-size: 2.5rem;   /* ~40px */
+}
+
+h2 {
+  font-size: 1.75rem;  /* ~28px */
+}
+
+h3 {
+  font-size: 1.25rem;  /* ~20px */
+}
+
+p {
+  font-size: 1rem;     /* 16px */
+  margin-bottom: 1rem;
+}
+
+span {
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: var(--neutral-light);
+}
+
+.header img {
+  width: 400px;
+  height: auto;
+  border-radius: 0;
+  object-fit: contain;
+}
+
+nav {
+  background-color: var(--secondary-color);
+  padding: 1rem 2rem;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+nav li {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+nav a {
+  color: var(--neutral-light);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: var(--primary-color);
+}
+
+h1, h2, h3 {
+  font-family: 'Markazi Text', serif;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  line-height: 1.2;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  object-fit: cover;
+  display: block;
+}
+
+.hero-text {
+  max-width: 60%;
+  color: var(--neutral-light);
+  line-height: 1.5;
+  white-space: normal;
+  justify-self: center;
+  align-self: start;
+}
+
+.hero-image {
+  width: 100%;
+  max-width: 260px;
+  border-radius: 8px;
+  object-fit: cover;
+  margin-top: -1.5rem;
+  transform: translateY(60px);
+}
+
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr; /* gives text more room */
+  justify-content: center;
+  align-items: end;
+  background-color: var(--secondary-color);
+  padding: 1rem 2rem;
+  border-radius: var(--radius);
+  margin: 2rem 0;
+  gap: 1.5rem;
+}
+
+.hero button {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: var(--radius);
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.hero button:hover {
+  background-color: #e3bd12;
+}
+
+.hero-text h1 {
+  color: var(--primary-color); /* Yellow */
+  font-size: 3.75rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.1;
+}
+
+.hero-text h2 {
+  color: var(--neutral-light); /* White */
+  font-size: 2.25rem;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.hero-text h1,
+.hero-text h2 {
+  font-family: 'Markazi Text', serif;
+  font-weight: 500;
+}
+
+.hero-text p {
+  font-family: 'Karla', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 400;
+  max-width: 45ch;
+}
+

@@ -1,4 +1,5 @@
 import Testimonials from './Testimonials';
+import heroImage from './assets/hero.jpg';
 
 function Main() {
   return (
@@ -18,7 +19,7 @@ function Main() {
 
         <img
           className="hero-image"
-          src="/assets/hero.jpg"
+          src={heroImage}
           alt="Little Lemon restaurant server holding food"
         />
       </section>
