@@ -1,0 +1,26 @@
+nav {
+  background-color: var(--secondary-color);
+  padding: 1rem 2rem;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+nav li {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+nav a {
+  color: var(--neutral-light);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: var(--primary-color);
+}

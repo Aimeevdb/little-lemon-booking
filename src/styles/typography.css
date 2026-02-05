@@ -1,0 +1,35 @@
+body {
+  font-family: var(--font-family-base);
+  background-color: var(--neutral-light);
+  color: var(--neutral-dark);
+  line-height: 1.6;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 1.75rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+}
+
+p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+span {
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+h1, h2, h3 {
+  font-family: 'Markazi Text', serif;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  line-height: 1.2;
+}

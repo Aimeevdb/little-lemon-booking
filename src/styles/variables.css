@@ -1,0 +1,12 @@
+:root {
+  --primary-color: #F4CE14;
+  --secondary-color: #495E57;
+  --neutral-light: #EDEFEE;
+  --neutral-dark: #333333;
+  --accent-pink: #EE9972;
+
+  --font-family-base: 'Karla', sans-serif;
+
+  --radius: 8px;
+  --shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}

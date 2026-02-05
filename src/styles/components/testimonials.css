@@ -1,0 +1,86 @@
+.testimonials {
+  background-color: var(--secondary-color);
+  padding: 4rem 1.5rem;
+  text-align: center;
+}
+
+.testimonials h2 {
+  font-family: 'Markazi Text', serif;
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 3rem;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Card */
+.testimonial-card {
+  display: grid;
+  grid-template-columns: auto 1fr; /* image left, content right */
+  gap: 1.25rem;
+
+  background-color: var(--accent-pink);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 2rem;
+  max-width: 320px;
+  margin: 0 auto;
+  align-items: start; /* keeps everything aligned cleanly */
+}
+
+/* Image stays the same */
+.testimonial-card img {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Content wrapper */
+.testimonial-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Name */
+.testimonial-card h3 {
+  font-family: 'Markazi Text', serif;
+  font-size: 1.35rem;
+  font-weight: 600;
+  margin: 0;
+  text-align: left;
+}
+
+/* Stars */
+.stars {
+  font-family: 'Karla', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #FFD700;
+  margin: 0;
+  text-align: left;
+}
+
+/* Quote */
+.testimonial-card p {
+  font-family: 'Karla', sans-serif;
+  font-size: 0.95rem;
+  color: var(--neutral-dark);
+  line-height: 1.55;
+  margin: 0;
+  text-align: left;
+}
