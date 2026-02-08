@@ -3,14 +3,28 @@ import Header from './Header';
 import Main from './Main';
 import About from './About';
 import Footer from './Footer';
+import BookingPage from './pages/BookingPage';
+import ConfirmationPage from './pages/ConfirmationPage';
+import { Routes, Route } from 'react-router-dom';
 import './styles/global.css';
 
 function App() {
   return (
     <>
       <Header />
-      <Main />
-      <About />
+
+      <Routes>
+        <Route path="/" element={
+          <>
+            <Main />
+            <About />
+          </>
+        } />
+
+        <Route path="/booking" element={<BookingPage />} />
+        <Route path="/confirmation" element={<ConfirmationPage />} />
+      </Routes>
+
       <Footer />
     </>
   );

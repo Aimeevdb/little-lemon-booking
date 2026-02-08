@@ -3,8 +3,11 @@ import heroImage from './assets/hero.jpg';
 import greekSalad from './assets/greek-salad.jpg';
 import bruschetta from './assets/bruschetta.svg';
 import lemonDessert from './assets/lemon-dessert.jpg';
+import { useNavigate } from "react-router-dom";
 
 function Main() {
+  const navigate = useNavigate();
+
   return (
     <main>
 
@@ -17,7 +20,9 @@ function Main() {
             We are a family owned Mediterranean restaurant focused on traditional
             recipes served with a modern twist.
           </p>
-          <button>Reserve a Table</button>
+          <button onClick={() => navigate("/booking")}>
+            Reserve a Table
+          </button>
         </div>
 
         <img
@@ -91,8 +96,8 @@ function Main() {
     </article>
 
   </div>
-  
-</section>        
+
+</section>
       {/* Testimonials Section */}
       <Testimonials />
 
