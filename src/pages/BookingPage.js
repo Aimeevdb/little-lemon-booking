@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import "../styles/components/booking.css";
 
 export default function BookingPage() {
   const navigate = useNavigate();

@@ -1,10 +1,20 @@
 import { useNavigate } from "react-router-dom";
+import "../styles/components/confirmation.css";
 
 export default function ConfirmationPage() {
   const navigate = useNavigate();
 
   return (
     <main className="confirmation-page">
+
+      {/* Hero Image */}
+      <div className="confirmation-hero">
+        <img
+          src="/images/confirmation-hero.jpg" // update this to your actual import
+          alt="Server carrying appetizers"
+        />
+      </div>
+
       <h1>Reservation Confirmed</h1>
       <p className="confirmation-subtitle">
         Your table has been successfully reserved. We look forward to serving you.
@@ -16,7 +26,7 @@ export default function ConfirmationPage() {
 
         <ul className="summary-list">
           <li>
-            <strong>Date:</strong> {/* placeholder until we pass real data */}
+            <strong>Date:</strong>
             <span>—</span>
           </li>
           <li>
