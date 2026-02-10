@@ -1,22 +1,22 @@
 .booking-page {
-  padding: 4rem 2rem;
-  background-color: var(--neutral-light);
+  padding: 4rem 1rem;
+  max-width: 600px;
+  margin: 0 auto;
   font-family: var(--font-family-base);
+  color: var(--neutral-dark);
 }
 
 .booking-page h1 {
-  font-size: 2.5rem;
+  font-size: 2rem;
   margin-bottom: 2rem;
   text-align: center;
   color: var(--secondary-color);
 }
 
 .booking-form {
-  max-width: 600px;
-  margin: 0 auto;
   display: grid;
   gap: 1.5rem;
-  background-color: white;
+  background-color: var(--neutral-light);
   padding: 2rem;
   border-radius: var(--radius);
   box-shadow: var(--shadow);
@@ -30,30 +30,32 @@
 .form-field label {
   font-weight: 600;
   margin-bottom: 0.5rem;
+  font-size: 0.95rem;
   color: var(--secondary-color);
 }
 
 .form-field input,
 .form-field select {
   padding: 0.75rem;
-  border: 1px solid var(--neutral-dark);
+  border: 1px solid #ccc;
   border-radius: var(--radius);
   font-size: 1rem;
-  background-color: var(--neutral-light);
+  background-color: white;
+  font-family: var(--font-family-base);
 }
 
-.submit-button {
+button[type="submit"] {
+  padding: 0.75rem 1.25rem;
   background-color: var(--primary-color);
   color: var(--secondary-color);
-  padding: 1rem;
   border: none;
   border-radius: var(--radius);
-  font-size: 1.1rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  font-size: 1rem;
   font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
 }
 
-.submit-button:hover {
+button[type="submit"]:hover {
   background-color: #e3bd12;
 }
