@@ -1,27 +1,48 @@
-.booking-page {
-  padding: 4rem 1rem;
-  max-width: 600px;
-  margin: 0 auto;
+/* ===== Reservation Section (Dark Background) ===== */
+.reservation-section {
+  background-color: #495e57; /* Little Lemon dark green */
+  padding: 3rem 1.5rem;
   font-family: var(--font-family-base);
+  margin-top: 0;
+}
+
+/* Layout: form left, image right */
+.reservation-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+/* ===== Reservation Card ===== */
+.reservation-card {
+  background-color: #edefee; /* light neutral */
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  display: grid;
+  gap: 1.5rem;
   color: var(--neutral-dark);
 }
 
-.booking-page h1 {
+
+.reservation-card h2 {
+  font-size: 3rem;
+  font-family: 'Markazi Text', serif;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+  color: var(--primary-color)
+}
+
+.reservation-card p {
+  margin-bottom: 1rem;
+  color: #555;
   font-size: 2rem;
-  margin-bottom: 2rem;
-  text-align: center;
-  color: var(--secondary-color);
 }
 
-.booking-form {
-  display: grid;
-  gap: 1.5rem;
-  background-color: var(--neutral-light);
-  padding: 2rem;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-}
-
+/* ===== Form Fields ===== */
 .form-field {
   display: flex;
   flex-direction: column;
@@ -30,32 +51,73 @@
 .form-field label {
   font-weight: 600;
   margin-bottom: 0.5rem;
-  font-size: 0.95rem;
-  color: var(--secondary-color);
+  font-size: 1.125rem;
+  color: var(--neutral-dark);
 }
 
 .form-field input,
-.form-field select {
+.form-field select,
+.form-field textarea {
   padding: 0.75rem;
   border: 1px solid #ccc;
-  border-radius: var(--radius);
+  border-radius: 8px;
   font-size: 1rem;
-  background-color: white;
+  background-color: #ffffff;
+  color: var(--neutral-dark);
   font-family: var(--font-family-base);
 }
 
-button[type="submit"] {
-  padding: 0.75rem 1.25rem;
+.form-field input::placeholder {
+  color: #888;
+}
+
+/* ===== Buttons ===== */
+.reservation-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+}
+
+.btn-primary {
   background-color: var(--primary-color);
-  color: var(--secondary-color);
+  color: #333;
   border: none;
-  border-radius: var(--radius);
+  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
   font-size: 1rem;
   font-weight: 700;
   cursor: pointer;
-  transition: background-color 0.2s ease;
 }
 
-button[type="submit"]:hover {
+.btn-primary:hover {
   background-color: #e3bd12;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--neutral-dark);
+  border: 2px solid var(--neutral-dark);
+  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* ===== Image ===== */
+.reservation-image img {
+  width: 100%;
+  border-radius: 16px;
+  object-fit: cover;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .reservation-content {
+    grid-template-columns: 1fr;
+  }
+
+  .reservation-image {
+    display: none;
+  }
 }
