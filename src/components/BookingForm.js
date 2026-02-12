@@ -8,6 +8,9 @@ export default function BookingForm() {
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
     date: "",
     time: "",
     guests: "",
@@ -31,6 +34,46 @@ export default function BookingForm() {
         <form className="reservation-card" onSubmit={handleSubmit}>
           <h2>Reserve a Table</h2>
           <p>Book your dining experience</p>
+
+<div className="form-field">
+  <label htmlFor="name">Name</label>
+  <input
+    type="text"
+    id="name"
+    name="name"
+    value={formData.name}
+    onChange={handleChange}
+    placeholder="Your full name"
+    required
+  />
+</div>
+
+<div className="form-field">
+  <label htmlFor="email">Email</label>
+  <input
+    type="email"
+    id="email"
+    name="email"
+    value={formData.email}
+    onChange={handleChange}
+    placeholder="you@example.com"
+    required
+  />
+</div>
+
+
+      <div className="form-field">
+  <label htmlFor="phone">Phone Number</label>
+  <input
+    type="tel"
+    id="phone"
+    name="phone"
+    value={formData.phone}
+    onChange={handleChange}
+    placeholder="(555) 123-4567"
+  />
+</div>
+
 
           <div className="form-field">
             <label htmlFor="date">Date</label>
@@ -67,7 +110,7 @@ export default function BookingForm() {
             <label>Occasion</label>
             <Dropdown
               label="Select occasion"
-              options={["Birthday", "Anniversary", "Other"]}
+              options={["Birthday", "Date Night","Anniversary", "Other"]}
               value={formData.occasion}
               onChange={(value) =>
                 setFormData((prev) => ({ ...prev, occasion: value }))

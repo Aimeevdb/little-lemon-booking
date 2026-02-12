@@ -13,7 +13,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 3rem;
-  align-items: center;
+  align-items: start;
 }
 
 /* ===== Reservation Card ===== */
@@ -45,15 +45,16 @@
 /* ===== Form Fields ===== */
 .form-field {
   display: flex;
-  flex-direction: column;
+  flex-direction: column; /* stack label above input */
+  gap: 6px; /* spacing between label and input */
+  margin-bottom: 16px; /* optional spacing between fields */
 }
 
 .form-field label {
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  font-size: 1.125rem;
-  color: var(--neutral-dark);
+  font-size: 0.9rem;
+  font-weight: 500;
 }
+
 
 .form-field input,
 .form-field select,
@@ -81,7 +82,7 @@
 .btn-primary {
   background-color: var(--primary-color);
   color: #333;
-  border: none;
+  border: 2px solid var(--neutral-dark);
   border-radius: 8px;
   padding: 0.75rem 1.5rem;
   font-size: 1rem;
@@ -94,7 +95,7 @@
 }
 
 .btn-secondary {
-  background-color: transparent;
+  background-color: var(--primary-color);
   color: var(--neutral-dark);
   border: 2px solid var(--neutral-dark);
   border-radius: 8px;
@@ -105,10 +106,16 @@
 }
 
 /* ===== Image ===== */
+.reservation-image {
+  margin-top: 0;      /* removes extra space above */
+  margin-bottom: 16px; /* space below before the form starts */
+}
+
 .reservation-image img {
   width: 100%;
   border-radius: 16px;
   object-fit: cover;
+  display: block; /* removes any inline spacing under the image */
 }
 
 /* ===== Responsive ===== */
