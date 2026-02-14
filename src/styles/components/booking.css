@@ -128,3 +128,20 @@
     display: none;
   }
 }
+
+.booking-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.booking-table th,
+.booking-table td {
+  border: 1px solid #ccc;
+  padding: 0.5rem;
+  text-align: left;
+}
+
+.booking-table th {
+  background-color: #f4f4f4;
+}

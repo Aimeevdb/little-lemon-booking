@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { submitAPI } from "../api";
 import "../styles/components/booking.css";
 import Dropdown from "./Dropdown";
-import restaurantImg from "../assets/restaurant.jpg"; // adjust path if needed
+import restaurantImg from "../assets/restaurant.jpg";
 
-export default function BookingForm() {
+export default function BookingForm({ availableTimes, dispatch }) {
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -17,54 +18,57 @@ export default function BookingForm() {
     occasion: "",
   });
 
-  const [error, setError] = useState(""); // to show validation or availability messages
+  const [error, setError] = useState("");
 
   function handleChange(e) {
-    setFormData({ ...formData, [e.target.id]: e.target.value });
-  }
+    const { id, value } = e.target;
 
-  // Placeholder availability check
-  function checkAvailability(date, time) {
-    // Example: block 12:00 on 2026-02-12
-    if (date === "2026-02-12" && time === "12:00") {
-      return false;
+    setFormData((prev) => ({
+      ...prev,
+      [id]: value,
+    }));
+
+    if (id === "date") {
+      dispatch({
+        type: "UPDATE_TIMES",
+        payload: value,
+      });
     }
-    return true;
   }
 
   function handleSubmit(e) {
     e.preventDefault();
 
-    // Basic required validation
-    if (!formData.name || !formData.email || !formData.date || !formData.time || !formData.guests) {
+    const requiredFields = ["name", "email", "date", "time", "guests"];
+    const missing = requiredFields.filter((field) => !formData[field]);
+
+    if (missing.length > 0) {
       setError("Please fill in all required fields.");
       return;
     }
 
-    // Availability check
-    if (!checkAvailability(formData.date, formData.time)) {
-      setError("Sorry, that date/time is unavailable. Please choose another.");
-      return;
-    }
+    const success = submitAPI(formData);
 
-    setError(""); // clear previous errors
-    navigate("/confirmation", { state: formData });
+    if (success) {
+      setError("");
+      navigate("/confirmation", { state: formData });
+    } else {
+      setError("Something went wrong. Please try again.");
+    }
   }
 
   return (
     <section className="reservation-section">
       <div className="reservation-content">
-
-        {/* FORM CARD */}
         <form className="reservation-card" onSubmit={handleSubmit}>
           <h2>Reserve a Table</h2>
           <p>Book your dining experience</p>
 
-{error && (
-  <p role="alert" aria-live="assertive" style={{ color: "red" }}>
-    {error}
-  </p>
-)}
+          {error && (
+            <p role="alert" aria-live="assertive" style={{ color: "red" }}>
+              {error}
+            </p>
+          )}
 
           <div className="form-field">
             <label htmlFor="name">Name</label>
@@ -73,7 +77,6 @@ export default function BookingForm() {
               id="name"
               value={formData.name}
               onChange={handleChange}
-              placeholder="Your full name"
               required
             />
           </div>
@@ -85,7 +88,6 @@ export default function BookingForm() {
               id="email"
               value={formData.email}
               onChange={handleChange}
-              placeholder="you@example.com"
               required
             />
           </div>
@@ -97,7 +99,6 @@ export default function BookingForm() {
               id="phone"
               value={formData.phone}
               onChange={handleChange}
-              placeholder="(555) 123-4567"
             />
           </div>
 
@@ -114,13 +115,19 @@ export default function BookingForm() {
 
           <div className="form-field">
             <label htmlFor="time">Time</label>
-            <input
-              type="time"
+            <select
               id="time"
               value={formData.time}
               onChange={handleChange}
               required
-            />
+            >
+              <option value="">Select a time</option>
+              {availableTimes.map((time) => (
+                <option key={time} value={time}>
+                  {time}
+                </option>
+              ))}
+            </select>
           </div>
 
           <div className="form-field">
@@ -147,7 +154,6 @@ export default function BookingForm() {
             />
           </div>
 
-          {/* BUTTONS */}
           <div className="reservation-buttons">
             <button
               type="button"
@@ -163,11 +169,9 @@ export default function BookingForm() {
           </div>
         </form>
 
-        {/* IMAGE */}
         <div className="reservation-image">
           <img src={restaurantImg} alt="Restaurant seating" />
         </div>
-
       </div>
     </section>
   );
