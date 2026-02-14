@@ -1,68 +1,52 @@
 .confirmation-page {
-  padding: 5rem 2rem;
-  background-color: var(--neutral-light);
+  background-color: #495e57;
+  padding: 3rem 1.5rem;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
   font-family: var(--font-family-base);
 }
 
 .confirmation-card {
-  background: white;
-  padding: 3rem 2.5rem;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
+  background-color: #edefee;
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
   max-width: 600px;
   width: 100%;
-  text-align: center;
+  display: grid;
+  gap: 1.5rem;
+  color: var(--neutral-dark);
 }
 
-.confirmation-card h1 {
-  font-size: 2.4rem;
-  margin-bottom: 1rem;
-  color: var(--secondary-color);
+.confirmation-card h2 {
+  font-size: 3rem;
+  font-family: 'Markazi Text', serif;
   font-weight: 700;
+  color: var(--primary-color);
 }
 
 .confirmation-card p {
   font-size: 1.2rem;
-  margin-bottom: 2.5rem;
-  color: var(--neutral-dark);
-  line-height: 1.6;
+  margin-bottom: 0.5rem;
 }
 
-.confirmation-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-
-.confirmation-buttons button {
-  padding: 0.85rem 1.6rem;
+.confirmation-details p {
   font-size: 1rem;
-  border: none;
-  border-radius: var(--radius);
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: #333;
+  border: 2px solid var(--neutral-dark);
+  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: center;
   cursor: pointer;
-  transition: transform 0.2s ease, background-color 0.3s ease;
-  font-weight: 600;
+  text-decoration: none;
 }
 
-.confirmation-buttons button:hover {
-  transform: translateY(-2px);
-}
-
-.back-button {
-  background-color: var(--neutral-dark);
-  color: white;
-}
-
-.modify-button {
-  background-color: var(--secondary-color);
-  color: var(--neutral-light);
-}
-
-.new-button {
-  background-color: var(--accent-pink);
-  color: var(--neutral-dark);
+.btn-primary:hover {
+  background-color: #e3bd12;
 }

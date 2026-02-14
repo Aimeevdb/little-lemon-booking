@@ -17,12 +17,37 @@ export default function BookingForm() {
     occasion: "",
   });
 
+  const [error, setError] = useState(""); // to show validation or availability messages
+
   function handleChange(e) {
     setFormData({ ...formData, [e.target.id]: e.target.value });
   }
 
+  // Placeholder availability check
+  function checkAvailability(date, time) {
+    // Example: block 12:00 on 2026-02-12
+    if (date === "2026-02-12" && time === "12:00") {
+      return false;
+    }
+    return true;
+  }
+
   function handleSubmit(e) {
     e.preventDefault();
+
+    // Basic required validation
+    if (!formData.name || !formData.email || !formData.date || !formData.time || !formData.guests) {
+      setError("Please fill in all required fields.");
+      return;
+    }
+
+    // Availability check
+    if (!checkAvailability(formData.date, formData.time)) {
+      setError("Sorry, that date/time is unavailable. Please choose another.");
+      return;
+    }
+
+    setError(""); // clear previous errors
     navigate("/confirmation", { state: formData });
   }
 
@@ -35,45 +60,46 @@ export default function BookingForm() {
           <h2>Reserve a Table</h2>
           <p>Book your dining experience</p>
 
-<div className="form-field">
-  <label htmlFor="name">Name</label>
-  <input
-    type="text"
-    id="name"
-    name="name"
-    value={formData.name}
-    onChange={handleChange}
-    placeholder="Your full name"
-    required
-  />
-</div>
+{error && (
+  <p role="alert" aria-live="assertive" style={{ color: "red" }}>
+    {error}
+  </p>
+)}
 
-<div className="form-field">
-  <label htmlFor="email">Email</label>
-  <input
-    type="email"
-    id="email"
-    name="email"
-    value={formData.email}
-    onChange={handleChange}
-    placeholder="you@example.com"
-    required
-  />
-</div>
+          <div className="form-field">
+            <label htmlFor="name">Name</label>
+            <input
+              type="text"
+              id="name"
+              value={formData.name}
+              onChange={handleChange}
+              placeholder="Your full name"
+              required
+            />
+          </div>
 
+          <div className="form-field">
+            <label htmlFor="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              value={formData.email}
+              onChange={handleChange}
+              placeholder="you@example.com"
+              required
+            />
+          </div>
 
-      <div className="form-field">
-  <label htmlFor="phone">Phone Number</label>
-  <input
-    type="tel"
-    id="phone"
-    name="phone"
-    value={formData.phone}
-    onChange={handleChange}
-    placeholder="(555) 123-4567"
-  />
-</div>
-
+          <div className="form-field">
+            <label htmlFor="phone">Phone Number</label>
+            <input
+              type="tel"
+              id="phone"
+              value={formData.phone}
+              onChange={handleChange}
+              placeholder="(555) 123-4567"
+            />
+          </div>
 
           <div className="form-field">
             <label htmlFor="date">Date</label>
@@ -82,6 +108,7 @@ export default function BookingForm() {
               id="date"
               value={formData.date}
               onChange={handleChange}
+              required
             />
           </div>
 
@@ -92,6 +119,7 @@ export default function BookingForm() {
               id="time"
               value={formData.time}
               onChange={handleChange}
+              required
             />
           </div>
 
@@ -103,6 +131,7 @@ export default function BookingForm() {
               min="1"
               value={formData.guests}
               onChange={handleChange}
+              required
             />
           </div>
 
@@ -110,7 +139,7 @@ export default function BookingForm() {
             <label>Occasion</label>
             <Dropdown
               label="Select occasion"
-              options={["Birthday", "Date Night","Anniversary", "Other"]}
+              options={["Birthday", "Date Night", "Anniversary", "Other"]}
               value={formData.occasion}
               onChange={(value) =>
                 setFormData((prev) => ({ ...prev, occasion: value }))

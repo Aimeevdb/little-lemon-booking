@@ -1,70 +1,26 @@
-import { useNavigate } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import "../styles/components/confirmation.css";
 
 export default function ConfirmationPage() {
-  const navigate = useNavigate();
+  const location = useLocation();
+  const formData = location.state || {}; // get data passed from the booking form
 
   return (
     <main className="confirmation-page">
+      <div className="confirmation-card">
+        <h2>Reservation Confirmed!</h2>
+        <p>Thank you, {formData.name}!</p>
 
-      {/* Hero Image */}
-      <div className="confirmation-hero">
-        <img
-          src="/images/confirmation-hero.jpg" // update this to your actual import
-          alt="Server carrying appetizers"
-        />
-      </div>
+        <div className="confirmation-details">
+          <p><strong>Email:</strong> {formData.email}</p>
+          <p><strong>Phone:</strong> {formData.phone}</p>
+          <p><strong>Date:</strong> {formData.date}</p>
+          <p><strong>Time:</strong> {formData.time}</p>
+          <p><strong>Guests:</strong> {formData.guests}</p>
+          {formData.occasion && <p><strong>Occasion:</strong> {formData.occasion}</p>}
+        </div>
 
-      <h1>Reservation Confirmed</h1>
-      <p className="confirmation-subtitle">
-        Your table has been successfully reserved. We look forward to serving you.
-      </p>
-
-      {/* Reservation Summary */}
-      <section className="reservation-summary">
-        <h2>Reservation Details</h2>
-
-        <ul className="summary-list">
-          <li>
-            <strong>Date:</strong>
-            <span>—</span>
-          </li>
-          <li>
-            <strong>Time:</strong>
-            <span>—</span>
-          </li>
-          <li>
-            <strong>Guests:</strong>
-            <span>—</span>
-          </li>
-          <li>
-            <strong>Occasion:</strong>
-            <span>—</span>
-          </li>
-          <li>
-            <strong>Name:</strong>
-            <span>—</span>
-          </li>
-          <li>
-            <strong>Email:</strong>
-            <span>—</span>
-          </li>
-        </ul>
-      </section>
-
-      {/* Action Buttons */}
-      <div className="confirmation-actions">
-        <button onClick={() => navigate(-1)} className="back-button">
-          Back
-        </button>
-
-        <button onClick={() => navigate("/booking")} className="modify-button">
-          Modify Reservation
-        </button>
-
-        <button onClick={() => navigate("/")} className="new-res-button">
-          Make Another Reservation
-        </button>
+        <Link to="/" className="btn-primary">Back to Home</Link>
       </div>
     </main>
   );
