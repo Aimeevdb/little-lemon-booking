@@ -1,11 +1,10 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { submitAPI } from "../api";
 import "../styles/components/booking.css";
 import Dropdown from "./Dropdown";
 import restaurantImg from "../assets/restaurant.jpg";
 
-export default function BookingForm({ availableTimes, dispatch }) {
+export default function BookingForm({ availableTimes, dispatch, submitForm }) {
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -36,26 +35,20 @@ export default function BookingForm({ availableTimes, dispatch }) {
     }
   }
 
-  function handleSubmit(e) {
-    e.preventDefault();
+function handleSubmit(e) {
+  e.preventDefault();
 
-    const requiredFields = ["name", "email", "date", "time", "guests"];
-    const missing = requiredFields.filter((field) => !formData[field]);
+  const requiredFields = ["name", "email", "date", "time", "guests"];
+  const missing = requiredFields.filter((field) => !formData[field]);
 
-    if (missing.length > 0) {
-      setError("Please fill in all required fields.");
-      return;
-    }
-
-    const success = submitAPI(formData);
-
-    if (success) {
-      setError("");
-      navigate("/confirmation", { state: formData });
-    } else {
-      setError("Something went wrong. Please try again.");
-    }
+  if (missing.length > 0) {
+    setError("Please fill in all required fields.");
+    return;
   }
+
+  setError("");
+  submitForm(formData);   // Main.js handles API + navigation now
+}
 
   return (
     <section className="reservation-section">

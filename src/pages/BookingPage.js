@@ -19,8 +19,7 @@ const updateTimes = (state, action) => {
   return state;
 };
 
-export default function BookingPage() {
-  const [availableTimes, dispatch] = useReducer(
+export default function BookingPage({ submitForm }) {  const [availableTimes, dispatch] = useReducer(
     updateTimes,
     [],
     initializeTimes
@@ -31,6 +30,7 @@ export default function BookingPage() {
       <BookingForm
         availableTimes={availableTimes}
         dispatch={dispatch}
+        submitForm={submitForm}
       />
     </main>
   );
