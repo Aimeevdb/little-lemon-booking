@@ -15,6 +15,7 @@ export default function BookingForm({ availableTimes, dispatch, submitForm }) {
     time: "",
     guests: "",
     occasion: "",
+    seating: "",
   });
 
   const [error, setError] = useState("");
@@ -35,20 +36,29 @@ export default function BookingForm({ availableTimes, dispatch, submitForm }) {
     }
   }
 
-function handleSubmit(e) {
-  e.preventDefault();
+  function handleSubmit(e) {
+    e.preventDefault();
 
-  const requiredFields = ["name", "email", "date", "time", "guests"];
-  const missing = requiredFields.filter((field) => !formData[field]);
+    const requiredFields = ["name", "email", "date", "time", "guests", "seating"];
+    const missing = requiredFields.filter((field) => !formData[field]);
 
-  if (missing.length > 0) {
-    setError("Please fill in all required fields.");
-    return;
+    if (missing.length > 0) {
+      setError("Please fill in all required fields.");
+      return;
+    }
+
+    setError("");
+    submitForm(formData); // Main.js handles API + navigation
   }
 
-  setError("");
-  submitForm(formData);   // Main.js handles API + navigation now
-}
+  // ✅ Step 2: React client-side validation
+  const isFormValid =
+    formData.name.trim().length >= 2 &&
+    formData.email.trim() !== "" &&
+    formData.date !== "" &&
+    formData.time !== "" &&
+    Number(formData.guests) >= 1 &&
+    formData.seating !== "";
 
   return (
     <section className="reservation-section">
@@ -71,6 +81,7 @@ function handleSubmit(e) {
               value={formData.name}
               onChange={handleChange}
               required
+              minLength="2"
             />
           </div>
 
@@ -92,6 +103,8 @@ function handleSubmit(e) {
               id="phone"
               value={formData.phone}
               onChange={handleChange}
+pattern="^(\(\d{3}\)\s?|\d{3}-?)\d{3}-?\d{4}$"
+placeholder="123-456-7890 or (123) 456-7890"
             />
           </div>
 
@@ -103,6 +116,7 @@ function handleSubmit(e) {
               value={formData.date}
               onChange={handleChange}
               required
+              min={new Date().toISOString().split("T")[0]}
             />
           </div>
 
@@ -129,6 +143,7 @@ function handleSubmit(e) {
               type="number"
               id="guests"
               min="1"
+              max="20"
               value={formData.guests}
               onChange={handleChange}
               required
@@ -147,6 +162,37 @@ function handleSubmit(e) {
             />
           </div>
 
+          <fieldset className="form-field">
+            <legend>Seating Preference</legend>
+
+            <label>
+              <input
+                type="radio"
+                name="seating"
+                value="indoor"
+                checked={formData.seating === "indoor"}
+                onChange={(e) =>
+                  setFormData((prev) => ({ ...prev, seating: e.target.value }))
+                }
+                required
+              />
+              Indoor
+            </label>
+
+            <label>
+              <input
+                type="radio"
+                name="seating"
+                value="outdoor"
+                checked={formData.seating === "outdoor"}
+                onChange={(e) =>
+                  setFormData((prev) => ({ ...prev, seating: e.target.value }))
+                }
+              />
+              Outdoor
+            </label>
+          </fieldset>
+
           <div className="reservation-buttons">
             <button
               type="button"
@@ -156,7 +202,11 @@ function handleSubmit(e) {
               Back
             </button>
 
-            <button type="submit" className="btn-primary">
+            <button
+              type="submit"
+              className="btn-primary"
+              disabled={!isFormValid} // ✅ React client-side validation
+            >
               Confirm Reservation
             </button>
           </div>
