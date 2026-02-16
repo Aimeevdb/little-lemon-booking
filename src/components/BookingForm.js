@@ -63,8 +63,11 @@ export default function BookingForm({ availableTimes, dispatch, submitForm }) {
   return (
     <section className="reservation-section">
       <div className="reservation-content">
-        <form className="reservation-card" onSubmit={handleSubmit}>
-          <h2>Reserve a Table</h2>
+<form
+  className="reservation-card"
+  onSubmit={handleSubmit}
+  data-testid="booking-form"
+>          <h2>Reserve a Table</h2>
           <p>Book your dining experience</p>
 
           {error && (
@@ -103,8 +106,8 @@ export default function BookingForm({ availableTimes, dispatch, submitForm }) {
               id="phone"
               value={formData.phone}
               onChange={handleChange}
-pattern="^(\(\d{3}\)\s?|\d{3}-?)\d{3}-?\d{4}$"
-placeholder="123-456-7890 or (123) 456-7890"
+              pattern="^(\(\d{3}\)\s?|\d{3}-?)\d{3}-?\d{4}$"
+              placeholder="123-456-7890 or (123) 456-7890"
             />
           </div>
 
