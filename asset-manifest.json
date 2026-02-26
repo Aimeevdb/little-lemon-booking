@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/little-lemon-booking/static/css/main.45c1cb36.css",
+    "main.js": "/little-lemon-booking/static/js/main.2f924ee7.js",
+    "static/js/453.fd00993b.chunk.js": "/little-lemon-booking/static/js/453.fd00993b.chunk.js",
+    "static/media/Mario and Adrian b.jpg": "/little-lemon-booking/static/media/Mario and Adrian b.6ba0e06bfa9c1ea75109.jpg",
+    "static/media/bruschetta.svg": "/little-lemon-booking/static/media/bruschetta.29ea078fea3d3120ed22402e901b5bbc.svg",
+    "static/media/greek-salad.jpg": "/little-lemon-booking/static/media/greek-salad.bed423a1fab5b210e347.jpg",
+    "static/media/hero.jpg": "/little-lemon-booking/static/media/hero.e8abf5b772b6817189aa.jpg",
+    "static/media/restaurant.jpg": "/little-lemon-booking/static/media/restaurant.324d0f99bdf19400a0f7.jpg",
+    "static/media/Logo.svg": "/little-lemon-booking/static/media/Logo.6c132dfefa69396bba43f72aa595e62f.svg",
+    "static/media/priya.png": "/little-lemon-booking/static/media/priya.bb3829de76da92822a9a.png",
+    "static/media/sofia.png": "/little-lemon-booking/static/media/sofia.970149c5d21fa9b26c68.png",
+    "static/media/daniel.png": "/little-lemon-booking/static/media/daniel.ecb1ff9109d0ccd8f74e.png",
+    "index.html": "/little-lemon-booking/index.html",
+    "main.45c1cb36.css.map": "/little-lemon-booking/static/css/main.45c1cb36.css.map",
+    "main.2f924ee7.js.map": "/little-lemon-booking/static/js/main.2f924ee7.js.map",
+    "453.fd00993b.chunk.js.map": "/little-lemon-booking/static/js/453.fd00993b.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.45c1cb36.css",
+    "static/js/main.2f924ee7.js"
+  ]
+}
