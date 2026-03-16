@@ -1,6 +1,5 @@
 {
   "name": "little-lemon-booking",
-  "homepage": "https://aimeevdb.github.io/little-lemon-booking",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
